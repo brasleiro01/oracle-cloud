@@ -10,6 +10,26 @@ variable "region" {}
 
 variable "compartment_id" {}
 
+variable "availability_domain" {
+  description = "Informar o dominio"
+  type        = string
+  default     = "Uocm:SA-SAOPAULO-AD-1"
+}
+
+
+variable "subnet_ocid" {
+  description = "Id da subnet"
+  type        = string
+  default     = "ocid1.subnet.oc1.sa-saopaulo-1.aaaaaaaajnbk7sfecl4agnnywjqw4bx3mn7h4fjv76xjqzwnwnkb7vzbp4jq"
+}
+
+
+variable "image_ocid" {
+  description = "Imagem a ser utilizada"
+  type        = string
+  default     = "ocid1.image.oc1.sa-saopaulo-1.aaaaaaaaispqwxlyjabiscd2rco5osqlizqqiioqbcivukop7etjobtcw4lq"
+}
+
 # compute instance parameters
 variable "instance_ad_number" {
   description = "O número do domínio de disponibilidade da instância. Se nenhum for fornecido, ele começará com AD-1 e continuará em round-robin."
@@ -29,13 +49,13 @@ variable "instance_display_name" {
   default     = "Bastion"
 }
 
-variable "instance_flex_memory_in_gbs" {
+variable "min_cpu_core" {
   type        = number
   description = "(Atualizável) A quantidade total de memória disponível para a instância, em gigabytes."
   default     = null
 }
 
-variable "instance_flex_ocpus" {
+variable "memory_in_gb" {
   type        = number
   description = "(Atualizável) O número total de OCPUs disponíveis para a instância."
   default     = null
@@ -52,7 +72,7 @@ variable "instance_state" {
   }
 }
 
-variable "shape" {
+variable "instance_shape" {
   description = "The shape of an instance."
   type        = string
   default     = "VM.Standard.A1.Flex"
